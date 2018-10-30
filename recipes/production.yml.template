@@ -11,10 +11,10 @@ spec:
   template: # create pods using pod definition in this template
     metadata:
       labels:
-        app: development
+        app: production
     spec:
       containers:
-      - name: development
+      - name: production
         image: {{DOCKERIMAGE}}
         ports:
         - containerPort: 8081
@@ -23,10 +23,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: development-service
+  name: production-service
 spec:
   selector:
-    app: development
+    app: production
   ports:
     - port: 8081
       protocol: TCP
