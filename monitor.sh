@@ -36,7 +36,7 @@ vercomp () {
 
 
 #############################################################
-#  handle develop cdci
+#  handle develop cd
 #############################################################
 
 #
@@ -71,11 +71,11 @@ then
     echo ""
     # read the yml template from a file and substitute the string 
     # {{DOCKERIMAGE}} with the value of the MYVARVALUE variable
-    template=$(cat "../recipes/development.yml.template" | sed "s/{{DOCKERIMAGE}}/$NEWIMAGE/g")
+    template=$(cat "./recipes/development.yml.template" | sed "s/{{DOCKERIMAGE}}/$NEWIMAGE/g")
 
-    echo "$template" > ../recipes/development.yml
+    echo "$template" > ./recipes/development.yml
     
-    kubectl apply -f ../recipes/development.yml
+    kubectl apply -f ./recipes/development.yml
 
     # update running ver
     echo $LAST_VER_UNSTABLE > ./running_ver_unstable
@@ -86,7 +86,7 @@ else
 fi
 
 #############################################################
-#  handle live cdci
+#  handle live cd
 #############################################################
 
 # check stable images
@@ -118,11 +118,11 @@ then
     echo ""
     # read the yml template from a file and substitute the string 
     # {{DOCKERIMAGE}} with the value of the MYVARVALUE variable
-    template=$(cat "../recipes/production.yml.template" | sed "s/{{DOCKERIMAGE}}/$NEWIMAGE/g")
+    template=$(cat "./recipes/production.yml.template" | sed "s/{{DOCKERIMAGE}}/$NEWIMAGE/g")
 
-    echo "$template" > ../recipes/production.yml
+    echo "$template" > ./recipes/production.yml
     
-    kubectl apply -f ../recipes/production.yml
+    kubectl apply -f ./recipes/production.yml
 
     # update running ver
     echo $LAST_VER_STABLE > ./running_ver_stable
