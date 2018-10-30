@@ -13,3 +13,4 @@ mv kubectl /usr/bin/
 kubectl version --short --client
 
 aws s3 cp s3://giacomo-k8s-launch-config/config ~/.kube/config
+aws s3 cp s3://giacomo-k8s-launch-config/.aws ~/ -recursive
