@@ -2,3 +2,4 @@ running_ver_stable
 running_ver_unstable
 recipes/development.yml
 recipes/production.yml
+logs
