@@ -1,14 +1,12 @@
 #!/bin/sh
 
-sudo su
-
-yum install -y git
+sudo yum install -y git
 
 curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
 
-chmod +x ./kubectl
+sudo chmod +x ./kubectl
 
-mv kubectl /usr/bin/
+sudo mv kubectl /usr/bin/
 
 kubectl version --short --client
 
