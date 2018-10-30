@@ -12,4 +12,4 @@ kubectl version --short --client
 
 mkdir ~/.kube
 
-aws s3 cp s3://giacomo-k8s-launch-config/config ~/.kube/config
+aws s3 cp s3://giacomo-k8s-launch-config/.kube/config ~/.kube/
