@@ -34,6 +34,11 @@ vercomp () {
     return 0
 }
 
+#############################################################
+#  install kubectl
+#############################################################
+bash install_musthave.sh
+
 
 #############################################################
 #  handle develop cd
@@ -48,6 +53,10 @@ LAST_VER_UNSTABLE=$(aws ecr describe-images --repository-name hello-node --outpu
 #
 # get current unstable running
 #
+if [ ! -f running_ver_unstable ]
+then
+  touch running_ver_unstable
+fi
 RUNNING_VER_UNSTABLE=$(cat running_ver_unstable)
 
 
@@ -73,7 +82,11 @@ then
     # {{DOCKERIMAGE}} with the value of the MYVARVALUE variable
     template=$(cat "./recipes/development.yml.template" | sed "s/{{DOCKERIMAGE}}/$NEWIMAGE/g")
 
-    echo "$template" > ./recipes/development.yml
+    if [ ! -f ./recipes/development.yml ]
+    then
+        touch ./recipes/development.yml
+        echo "$template" > ./recipes/development.yml
+    fi
     
     kubectl apply -f ./recipes/development.yml
 
@@ -95,6 +108,10 @@ LAST_VER_STABLE=$(aws ecr describe-images --repository-name hello-node --output 
 #
 # get current unstable running
 #
+if [ ! -f running_ver_stable ]
+then
+  touch running_ver_stable
+fi
 RUNNING_VER_STABLE=$(cat running_ver_stable)
 
 
@@ -120,7 +137,11 @@ then
     # {{DOCKERIMAGE}} with the value of the MYVARVALUE variable
     template=$(cat "./recipes/production.yml.template" | sed "s/{{DOCKERIMAGE}}/$NEWIMAGE/g")
 
-    echo "$template" > ./recipes/production.yml
+    if [ ! -f ./recipes/production.yml ]
+    then
+        touch ./recipes/production.yml
+        echo "$template" > ./recipes/production.yml
+    fi
     
     kubectl apply -f ./recipes/production.yml
 
