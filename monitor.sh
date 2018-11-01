@@ -152,3 +152,7 @@ else
     echo "nothing to do... maybe..."
     echo ""
 fi
+
+echo "" >> $LOGFILE
+echo ">>> END  "$(date +"%Y-%m-%d %H:%M:%S") >> $LOGFILE
+echo "" >> $LOGFILE
