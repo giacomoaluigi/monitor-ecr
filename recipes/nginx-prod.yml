@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: nginx-router
-        image: 016772326329.dkr.ecr.eu-west-1.amazonaws.com/nginx-router:1.0.3-stable
+        image: 016772326329.dkr.ecr.eu-west-1.amazonaws.com/nginx-router:1.0.4-stable
         ports:
         - containerPort: 80
 ---
