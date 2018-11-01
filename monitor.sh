@@ -191,6 +191,7 @@ else
     echo "" >> $LOGFILE
 fi
 
+
 echo "" >> $LOGFILE
 echo ">>> END  "$(date +"%Y-%m-%d %H:%M:%S") >> $LOGFILE
 echo "" >> $LOGFILE
